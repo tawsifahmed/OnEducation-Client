@@ -1,10 +1,15 @@
 import React from 'react';
+import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
+
+    const { signIn } = useContext(AuthContext)
+
     return (
-        <Form>
+        <Form className='m-5'>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control type="email" placeholder="Enter email" />
