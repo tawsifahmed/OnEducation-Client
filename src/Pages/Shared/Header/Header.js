@@ -36,20 +36,19 @@ const Header = () => {
         <div>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
                 <Container>
-                    <Navbar.Brand href="/">On<span className='text-primary'>Education</span></Navbar.Brand>
+                    <Navbar.Brand className='fs-2' as={Link} to="/">On<span className='text-primary'>Education</span></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="me-auto">
-                            <Nav.Link href="/courses">Courses</Nav.Link>
-                            <Nav.Link href="/blog">Blog</Nav.Link>
+                        <Nav className="me-auto pt-2">
+                            <Nav.Link as={Link} to="/courses">Courses</Nav.Link>
+                            <Nav.Link as={Link} to="/blog">Blog</Nav.Link>
                             <Nav.Link>FAQ</Nav.Link>
 
                         </Nav>
-                        <Nav>
-
+                        <Nav className=''>
                             <Nav.Link>Theme: Light</Nav.Link>
                             <Nav.Link>
-                                <FaToggleOff className='mb-1'></FaToggleOff> |
+                                <FaToggleOff></FaToggleOff> |
                             </Nav.Link>
                             <Nav.Link>
                                 {
@@ -82,13 +81,24 @@ const Header = () => {
             </Navbar>
             <Navbar>
                 <Container>
-                    <Navbar.Brand className='d-none' href="#home">Navbar with text</Navbar.Brand>
+                    <Navbar.Brand className='d-none'>Navbar with text</Navbar.Brand>
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
                         <Navbar.Text>
                             <ButtonGroup>
-                                <Button onClick={handleGoogleSignIn} className='me-2 rounded' variant="outline-primary"><FaGoogle></FaGoogle> Log in</Button>
-                                <Button variant="outline-dark rounded"><FaGithub></FaGithub> Log in</Button>
+                                {user?.email ?
+                                    <>
+                                        <div className='d-none'>
+                                            <h2>ss</h2>
+                                        </div>
+                                    </>
+                                    :
+                                    <>
+                                        <Button onClick={handleGoogleSignIn} className='me-2 rounded' variant="outline-primary"><FaGoogle></FaGoogle> Log in</Button>
+
+                                        <Button variant="outline-dark rounded"><FaGithub></FaGithub> Log in</Button>
+                                    </>
+                                }
                             </ButtonGroup>
                         </Navbar.Text>
                     </Navbar.Collapse>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -12,7 +13,8 @@ const Login = () => {
     const { signIn } = useContext(AuthContext)
     const navigate = useNavigate();
     const location = useLocation();
-    const from = location.state?.from?.pathname || '/'
+
+    const from = location.state?.from?.pathname || '/';
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -28,8 +30,6 @@ const Login = () => {
                 form.reset();
                 setError('');
                 navigate(from, { replace: true });
-
-
             })
             .catch(error => {
                 console.error(error)
@@ -37,27 +37,40 @@ const Login = () => {
             })
     }
     return (
-        <Form onSubmit={handleSubmit} className='m-5'>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control name="email" type="email" placeholder="Enter email" required />
+        <Container>
+            <Row>
+                <Col lg="4">
+                </Col>
+                <Col lg="4">
+                    <Form onSubmit={handleSubmit} className='m-5'>
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Label>Email address</Form.Label>
+                            <Form.Control name="email" type="email" placeholder="Enter email" required />
 
-            </Form.Group>
+                        </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control name="password" type="password" placeholder="Password" required />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Check me out" />
-            </Form.Group>
-            <Button variant="primary" type="submit">
-                Login
-            </Button>
-            <Form.Text className="text-danger">
-                {error}
-            </Form.Text>
-        </Form>
+                        <Form.Group className="mb-3" controlId="formBasicPassword">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control name="password" type="password" placeholder="Password" required />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                            <Form.Check type="checkbox" label="Check me out" />
+                        </Form.Group>
+                        <Button variant="primary" type="submit">
+                            Login
+                        </Button>
+                        <Form.Text className="text-danger">
+                            {error}
+                        </Form.Text>
+                    </Form>
+                </Col>
+                <Col lg="4">
+                </Col>
+            </Row>
+
+
+        </Container>
+
     );
 };
 
