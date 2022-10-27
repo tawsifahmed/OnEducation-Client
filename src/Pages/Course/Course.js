@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import LeftSideNav from '../Shared/LeftSideNav/LeftSideNav';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -29,7 +29,12 @@ const Course = () => {
                                     <Card.Text>
                                         {course.details}
                                     </Card.Text>
-                                    <div className='text-center'><Button variant="primary">Get Premium Access</Button></div>
+                                    <div className='text-center'>
+                                        <Link to="/checkout">
+                                            <Button variant="primary">Get Premium Access</Button>
+                                        </Link>
+
+                                    </div>
                                 </Card.Body>
                             </Card>
                         </div>
