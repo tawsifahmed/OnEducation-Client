@@ -3,6 +3,8 @@ import Main from "../../layout/Main";
 import Course from "../../Pages/Course/Course";
 import Courses from "../../Pages/Courses/Courses";
 import Home from "../../Pages/Home/Home/Home";
+import Login from "../../Pages/Login/Login/Login";
+import Register from "../../Pages/Login/Register/Register";
 import LeftSideNav from "../../Pages/Shared/LeftSideNav/LeftSideNav";
 
 export const routes = createBrowserRouter([
@@ -26,6 +28,14 @@ export const routes = createBrowserRouter([
             {
                 path: '/courses',
                 element: <LeftSideNav></LeftSideNav>
+            },
+            {
+                path: '/login',
+                element: <Login></Login>
+            },
+            {
+                path: '/register',
+                element: <Register></Register>
             }
         ]
     }
