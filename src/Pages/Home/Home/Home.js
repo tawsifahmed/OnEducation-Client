@@ -7,7 +7,7 @@ const Home = () => {
             <Container>
                 <Row>
                     <Col lg="8">
-                        <h1 className='align-items-center'>Welcome to OnEducation</h1>
+                        <h1 className=''>Welcome to On<span className='text-primary'>Education</span>.</h1>
                     </Col>
                     <Col lg="4">
                         <h2 className='mt-4'>Learn Your skills here.</h2>
