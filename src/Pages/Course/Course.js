@@ -5,10 +5,15 @@ import LeftSideNav from '../Shared/LeftSideNav/LeftSideNav';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { FaFilePowerpoint } from "react-icons/fa";
+import Printer, { print } from 'react-pdf-print'
+
+
+const ids = ['1']
 
 
 const Course = () => {
     const course = useLoaderData();
+
     return (
         <div>
             <Container>
@@ -19,26 +24,29 @@ const Course = () => {
                     <Col lg="10">
                         <div className='d-flex justify-content-center align-self-center'>
                             <h2 className='text-center mb-5 pe-3 me-2'>Course Detail</h2>
-                            <h1 className='mb-5'><Button><FaFilePowerpoint></FaFilePowerpoint></Button></h1>
+                            <h1 onClick={() => print(ids)} className='mb-5'><Button><FaFilePowerpoint></FaFilePowerpoint></Button></h1>
                         </div>
                         <div className='d-flex justify-content-center'>
-                            <Card style={{ width: '28rem' }}>
-                                <Card.Img variant="top" src={course.image_url} />
-                                <Card.Body>
-                                    <Card.Title>{course.title}</Card.Title>
-                                    <Card.Text>
-                                        {course.details}
-                                    </Card.Text>
-                                    <div className='text-center'>
+                            <Printer>
+                                <Card id={ids[0]} style={{ width: '28rem' }}>
+                                    <Card.Img variant="top" src={course.image_url} />
+                                    <Card.Body>
+                                        <Card.Title>{course.title}</Card.Title>
+                                        <Card.Text>
+                                            {course.details}
+                                        </Card.Text>
+                                        <div className='text-center'>
 
-                                        <Link to={`/checkout/${course._id}`}>
-                                            <Button variant="primary">Get Premium Access</Button>
-                                        </Link>
+                                            <Link to={`/checkout/${course._id}`}>
+                                                <Button variant="primary">Get Premium Access</Button>
+                                            </Link>
 
-                                    </div>
-                                </Card.Body>
-                            </Card>
+                                        </div>
+                                    </Card.Body>
+                                </Card>
+                            </Printer>
                         </div>
+
 
                     </Col>
                 </Row>

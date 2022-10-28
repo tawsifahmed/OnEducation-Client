@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 
@@ -61,6 +61,9 @@ const Login = () => {
                         </Button>
                         <Form.Text className="text-danger">
                             {error}
+                        </Form.Text>
+                        <Form.Text className='ms-2'>
+                            New to this site? Then, <Link to='/register'>Register</Link>
                         </Form.Text>
                     </Form>
                 </Col>

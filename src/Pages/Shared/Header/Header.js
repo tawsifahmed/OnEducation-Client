@@ -1,4 +1,4 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GoogleAuthProvider, GithubAuthProvider } from 'firebase/auth';
 import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
@@ -13,6 +13,7 @@ import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 
 
+
 const Header = () => {
     const { user, providerLogin, logOut } = useContext(AuthContext);
 
@@ -23,10 +24,21 @@ const Header = () => {
 
     }
 
-    const googleProvider = new GoogleAuthProvider()
+    const googleProvider = new GoogleAuthProvider();
 
     const handleGoogleSignIn = () => {
         providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.log(error))
+    }
+
+    const githubProvider = new GithubAuthProvider();
+
+    const handleGithubSignIn = () => {
+        providerLogin(githubProvider)
             .then(result => {
                 const user = result.user;
                 console.log(user);
@@ -66,7 +78,7 @@ const Header = () => {
                                 {
                                     user?.uid ?
                                         <>
-                                            <span>                                {user?.displayName}
+                                            <span>                                {isHovering && <p className='fs-6 d-inline'>{user?.displayName}</p>}
                                             </span>
                                             <Button variant="link" onClick={handleLogOut}>Logout</Button>
 
@@ -90,7 +102,6 @@ const Header = () => {
                                                 : <FaUser></FaUser>
                                             }
                                         </div>
-                                        {isHovering && <p className='fs-6 d-inline'>{user?.displayName}</p>}
                                     </div>
                                 </div>
                             </Nav.Link>
@@ -115,7 +126,7 @@ const Header = () => {
                                     <>
                                         <Button onClick={handleGoogleSignIn} className='me-2 rounded' variant="outline-primary"><FaGoogle></FaGoogle> Log in</Button>
 
-                                        <Button variant="outline-dark rounded"><FaGithub></FaGithub> Log in</Button>
+                                        <Button onClick={handleGithubSignIn} variant="outline-dark rounded"><FaGithub></FaGithub> Log in</Button>
                                     </>
                                 }
                             </ButtonGroup>
