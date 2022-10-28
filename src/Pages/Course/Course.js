@@ -30,7 +30,8 @@ const Course = () => {
                                         {course.details}
                                     </Card.Text>
                                     <div className='text-center'>
-                                        <Link to="/checkout">
+
+                                        <Link to={`/checkout/${course._id}`}>
                                             <Button variant="primary">Get Premium Access</Button>
                                         </Link>
 

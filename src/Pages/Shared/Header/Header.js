@@ -1,5 +1,6 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import { Button, ButtonGroup, Image, } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
@@ -32,6 +33,17 @@ const Header = () => {
             })
             .catch(error => console.log(error))
     }
+
+    const [isHovering, setIsHovering] = useState(false);
+
+    const handleMouseOver = () => {
+        setIsHovering(true);
+    };
+
+    const handleMouseOut = () => {
+        setIsHovering(false);
+    };
+
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
@@ -68,12 +80,19 @@ const Header = () => {
 
                             </Nav.Link>
                             <Nav.Link>
-                                {user?.photoURL ?
-                                    <Image style={{ height: '40px' }} roundedCircle src={user?.photoURL}>
+                                <div>
+                                    <div>
+                                        <div onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+                                            {user?.photoURL ?
+                                                <Image style={{ height: '40px' }} roundedCircle src={user?.photoURL}>
 
-                                    </Image>
-                                    : <FaUser></FaUser>
-                                }
+                                                </Image>
+                                                : <FaUser></FaUser>
+                                            }
+                                        </div>
+                                        {isHovering && <p className='fs-6 d-inline'>{user?.displayName}</p>}
+                                    </div>
+                                </div>
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
