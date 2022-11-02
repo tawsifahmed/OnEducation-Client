@@ -1,27 +1,21 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Project Description
 
-In the project directory, you can run:
+Website Name: OnEducation
+Live Site: https://magenta-basbousa-6360aa.netlify.app/
 
-### `npm start`
+### Website Features 
+* Single Page Application based Site
+* Responsive web design
+* User friendly functionality, easy to surf through
+* Has protected routes
+* Authentication system for users
 
-
-
-### `npm test`
-
-
-
-### `npm run build`
-
-
-
-
-
-
-
-### `npm run eject`
+### List of technology used
+* Bootstrap, React-Bootstrap
+* React
+* Firebase
+* React Router
+* Netlify 
 
 
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
