@@ -53,17 +53,16 @@ const Login = () => {
                             <Form.Label>Password</Form.Label>
                             <Form.Control name="password" type="password" placeholder="Password" required />
                         </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                            <Form.Check type="checkbox" label="Check me out" />
-                        </Form.Group>
+
                         <Button variant="primary" type="submit">
                             Login
                         </Button>
                         <Form.Text className="text-danger">
                             {error}
                         </Form.Text>
-                        <Form.Text className='ms-2'>
-                            New to this site? Then, <Link to='/register'>Register</Link>
+                        <br></br>
+                        <Form.Text>
+                            New to this site? Then, <Link to='/register'>Register.</Link>
                         </Form.Text>
                     </Form>
                 </Col>

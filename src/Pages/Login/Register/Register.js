@@ -54,17 +54,16 @@ const Register = () => {
                     <Form.Label>Password</Form.Label>
                     <Form.Control name="password" type="password" placeholder="Password" required />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group>
+
                 <Button variant="primary" type="submit">
                     Register
                 </Button>
                 <Form.Text className="text-danger">
                     {error}
                 </Form.Text>
-                <Form.Text className='ms-2'>
-                    Already have an account? Then <Link to='/login'>Login</Link>
+                <br></br>
+                <Form.Text>
+                    Already have an account? Then, <Link to='/login'>Login.</Link>
                 </Form.Text>
             </Form>
         </div>

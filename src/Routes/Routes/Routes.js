@@ -50,6 +50,9 @@ export const routes = createBrowserRouter([
                 loader: ({ params }) => fetch(`https://b610-learning-platform-server-tawsifahmed.vercel.app/${params.id}`)
             }
         ]
+    },
+    {
+        path: '*', element: <div className="text-center mt-3 fs-2">404, route not found</div>
     }
 
 ])
