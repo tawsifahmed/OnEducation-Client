@@ -23,8 +23,8 @@ const Course = () => {
                     </Col>
                     <Col lg="10">
                         <div className='d-flex justify-content-center align-self-center'>
-                            <h2 className='text-center mb-5 pe-3 me-2'>Course Detail</h2>
-                            <h1 onClick={() => print(ids)} className='mb-5'><Button><FaFilePowerpoint></FaFilePowerpoint></Button></h1>
+                            <h2 className='text-center text-muted text-decoration-underline mb-5 pe-3 me-2'>Course Detail</h2>
+                            <h2 onClick={() => print(ids)} className='mb-5'><Button><FaFilePowerpoint></FaFilePowerpoint></Button></h2>
                         </div>
                         <div className='d-flex justify-content-center'>
                             <Printer>
@@ -37,7 +37,7 @@ const Course = () => {
                                         </Card.Text>
                                         <div className='text-center'>
 
-                                            <Link to={`/checkout/${course._id}`}>
+                                            <Link course={course} to={`/checkout/${course.course_id}`}>
                                                 <Button variant="primary">Get Premium Access</Button>
                                             </Link>
 
