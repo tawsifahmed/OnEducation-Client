@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import CourseDetail from "../../CourseDetail/CourseDetail";
 import Main from "../../layout/Main";
 import Blog from "../../Pages/Blog/Blog";
 import Checkout from "../../Pages/Checkout/Checkout";
@@ -22,7 +23,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/course/:id',
                 element: <Course></Course>,
-                loader: ({ params }) => fetch(`https://b610-learning-platform-server-tawsifahmed.vercel.app/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:9000/${params.id}`)
             },
             {
                 path: '/courses',
@@ -45,9 +46,14 @@ export const routes = createBrowserRouter([
                 element: <Blog></Blog>
             },
             {
+                path: '/course-details/:id',
+                element: <CourseDetail></CourseDetail>,
+                loader: ({ params }) => fetch(`http://localhost:9000/course-details/${params.id}`)
+            },
+            {
                 path: '/checkout/:id',
                 element: <PrivateRoute><Checkout></Checkout></PrivateRoute>,
-                loader: ({ params }) => fetch(`https://b610-learning-platform-server-tawsifahmed.vercel.app/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:9000/${params.id}`)
             }
         ]
     },
