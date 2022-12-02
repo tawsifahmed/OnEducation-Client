@@ -12,7 +12,7 @@ const CourseDetail = () => {
     return (
         <div>
             <div className='d-flex justify-content-center'>
-                <Pdf targetRef={ref} filename="course-detail.pdf" >
+                <Pdf targetRef={ref} filename="course-detail.pdf">
                     {({ toPdf }) => <Button> <FaFilePowerpoint onClick={toPdf}></FaFilePowerpoint></Button>}
                 </Pdf>
             </div>
