@@ -20,7 +20,7 @@ const Course = () => {
                     <Col lg="10">
                         <div className='d-flex justify-content-center align-self-center'>
                             <h2 className='text-center text-muted text-decoration-underline mb-5 pe-3 me-2'>Courses</h2>
-                            <h2 className='mb-5'><Button><FaFilePowerpoint></FaFilePowerpoint></Button></h2>
+                            <h2 className='mb-5'></h2>
                         </div>
                         <div className='row row-cols-xl-4 row-cols-md-3 row-cols-1 gap-3 d-flex justify-content-center align-items-center mb-5'>
                             {
